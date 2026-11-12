@@ -1,0 +1,130 @@
+:root {
+  --bg: #f6f6f4;
+  --text: #1c1c1c;
+  --muted: #6b6b6b;
+  --line: #d4d4d0;
+  --accent: #1c1c1c;
+  --error: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 20px 64px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  padding: 20px;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+
+#dropzone:hover,
+#dropzone.dragover,
+#dropzone:focus-within {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+#status {
+  margin: 16px 0 0;
+  color: var(--muted);
+}
+
+#status.error { color: var(--error); }
+
+#result { margin-top: 24px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+figure { margin: 0; }
+
+figcaption {
+  margin-bottom: 8px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 460px;
+}
+
+.checker {
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #e4e4e0 25%, transparent 25%, transparent 75%, #e4e4e0 75%),
+    linear-gradient(45deg, #e4e4e0 25%, transparent 25%, transparent 75%, #e4e4e0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+#downloadBtn {
+  margin-top: 20px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#downloadBtn:hover:not(:disabled) { opacity: .88; }
+
+#downloadBtn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+#downloadBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
